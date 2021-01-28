@@ -1,0 +1,93 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-01-28T18:02:03.979Z",
+    "end": "2021-01-28T18:02:04.077Z",
+    "duration": 98,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a2cc417d-111c-45a5-9de2-4e09258ef537",
+      "title": "",
+      "fullFile": "cypress\\integration\\tests\\testDbInsertProject.js",
+      "file": "cypress\\integration\\tests\\testDbInsertProject.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "teste banco de dados",
+          "fullTitle": "teste banco de dados",
+          "timedOut": null,
+          "duration": 89,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "var dbName = 'bugtracker';\nvar query = 'INSERT INTO mantis_project_table (NAME,STATUS,ENABLED,view_state,access_min,description,category_id,inherit_global) VALUES (\"Base2\",30,1,10,10,\"teste2\",1,1)';\ncy.task('queryDatabase', {\n  dbName: dbName,\n  query: query\n}).as('Massa de dados');",
+          "err": {},
+          "uuid": "2bad9603-0805-4717-b845-509ca93a34b1",
+          "parentUUID": "a2cc417d-111c-45a5-9de2-4e09258ef537",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "2bad9603-0805-4717-b845-509ca93a34b1"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 89,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reporter": "mocha-junit-reporter",
+        "reporterOptions": {
+          "mochaFile": "cypress / reports / junit / test-results. [hash] .xml",
+          "testsuitesTitle": false
+        }
+      },
+      "version": "5.1.0"
+    }
+  }
+}

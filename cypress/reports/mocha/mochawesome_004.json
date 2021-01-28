@@ -1,0 +1,93 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-01-28T18:01:53.284Z",
+    "end": "2021-01-28T18:01:53.378Z",
+    "duration": 94,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7cc7495d-99cc-4091-97b8-964e0a8547ad",
+      "title": "",
+      "fullFile": "cypress\\integration\\tests\\testDbDeleteUsuarios.spec.js",
+      "file": "cypress\\integration\\tests\\testDbDeleteUsuarios.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "teste banco de dados",
+          "fullTitle": "teste banco de dados",
+          "timedOut": null,
+          "duration": 77,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "var dbName = 'bugtracker';\nvar query = 'DELETE FROM mantis_user_table WHERE username <> \"administrator\"';\ncy.task('queryDatabase', {\n  dbName: dbName,\n  query: query\n}).as('Massa de dados');",
+          "err": {},
+          "uuid": "297f57e7-2fa8-4f0c-b105-7824461950bd",
+          "parentUUID": "7cc7495d-99cc-4091-97b8-964e0a8547ad",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "297f57e7-2fa8-4f0c-b105-7824461950bd"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 77,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reporter": "mocha-junit-reporter",
+        "reporterOptions": {
+          "mochaFile": "cypress / reports / junit / test-results. [hash] .xml",
+          "testsuitesTitle": false
+        }
+      },
+      "version": "5.1.0"
+    }
+  }
+}

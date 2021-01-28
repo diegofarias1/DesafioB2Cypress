@@ -1,0 +1,25 @@
+{
+  "url": "http://localhost:8989/login_page.php",
+  "username": "administrator",
+  "senha": "123456",
+  "reporter": "cypress-multi-reporters",
+  "projeto":"projeto",
+  "reporterOptions": {
+    "reporterEnabled": "mochawesome",
+    "mochawesomeReporterOptions": {
+      "reportDir": "cypress/reports/mocha",
+      "quite": true,
+      "overwrite": false,
+      "html": true,
+      "json": true,
+      "reporter": "mocha-junit-reporter", 
+      "reporterOptions": { 
+      "mochaFile": "cypress / reports / junit / test-results. [hash] .xml", 
+      "testsuitesTitle": false 
+}
+    }
+  },
+  "projectId": "z5qrsa"
+}
+
+

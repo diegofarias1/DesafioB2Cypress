@@ -1,0 +1,150 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-01-28T18:01:40.102Z",
+    "end": "2021-01-28T18:01:46.140Z",
+    "duration": 6038,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8557ad18-b19f-4d5c-8c12-628b3a0e7d74",
+      "title": "",
+      "fullFile": "cypress\\integration\\tests\\desafiobase.spec.js",
+      "file": "cypress\\integration\\tests\\desafiobase.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f3bce1bf-e8ee-4e6f-9478-b9944bd2125f",
+          "title": "Testes MantisBugTracker",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "dd373d13-c3be-4672-8ac5-5259a3170902",
+              "title": "Gerenciar",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [],
+              "suites": [
+                {
+                  "uuid": "d734b2da-5bf3-4c18-b803-5eb03967180e",
+                  "title": "Users",
+                  "fullFile": "",
+                  "file": "",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "Delete User Created",
+                      "fullTitle": "Testes MantisBugTracker Gerenciar Users Delete User Created",
+                      "timedOut": null,
+                      "duration": 3936,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "var name = 'Userone';\n_ManagmentPage[\"default\"].clickConfig();\n_ManagmentPage[\"default\"].clickUserConfig();\n_ManagmentPage[\"default\"].ClicknewUser();\n_ManagmentPage[\"default\"].SendName(name);\n_ManagmentPage[\"default\"].clickSaveUser();\n_ManagmentPage[\"default\"].clickContinue();\n_ManagmentPage[\"default\"].clickDeleteUserCreated();\n_ManagmentPage[\"default\"].clickConfirmDeleteUserCreated(); //Validacao (Assert)\n\n_ManagmentPage[\"default\"].assertDeletedUser();",
+                      "err": {},
+                      "uuid": "408d2f52-0d2f-4ca3-9cba-28242091a727",
+                      "parentUUID": "d734b2da-5bf3-4c18-b803-5eb03967180e",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "408d2f52-0d2f-4ca3-9cba-28242091a727"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 3936,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 2000
+                }
+              ],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reporter": "mocha-junit-reporter",
+        "reporterOptions": {
+          "mochaFile": "cypress / reports / junit / test-results. [hash] .xml",
+          "testsuitesTitle": false
+        }
+      },
+      "version": "5.1.0"
+    }
+  }
+}
