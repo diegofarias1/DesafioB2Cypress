@@ -25,7 +25,9 @@ const el = {
     textPlataformtask: '#platform',
     textVersionOs: '#os_build',
     listProfile: '#profile_id',
-    listFrequency: '#reproducibility'
+    listFrequency: '#reproducibility',
+    task_Resume:'.nav > :nth-child(6) > :nth-child(1)',
+    assertResumeTask:':nth-child(1) > :nth-child(2) > .table > :nth-child(2) > :nth-child(1) > :nth-child(2)'
 
 
 }
@@ -150,6 +152,12 @@ class TaskPage {
         cy.get(el.listFrequency).select('100')
  
     }
+    clickTaskResume(){
+        cy.get(el.task_Resume).click()
+      }
+      assertResumeTask(){
+        cy.get(el.assertResumeTask).should('contain','1')
+      }
 }
 
 export default new TaskPage()

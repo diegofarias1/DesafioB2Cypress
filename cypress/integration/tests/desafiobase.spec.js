@@ -150,6 +150,114 @@ describe('Testes MantisBugTracker', () => {
                     //Validacao (Assert)
                     managmentPage.assertDeletedUser()
             })
+            it('Create User using JS', () => {
+
+                var name = 'Usertree'
+                var nickname = 'tree'
+                var email = 'usertree@email.com'
+
+                managmentPage.clickConfig()
+                managmentPage.clickUserConfig()
+                managmentPage.ClicknewUser()
+                managmentPage.SendName(name)
+                managmentPage.SendRealname(nickname)
+                cy.get('#email-field').then($el => {
+                    $el.val('usertree@email.com')
+                managmentPage.selectAcessNivel()
+                managmentPage.clickSaveUser()
+                managmentPage.clickContinue()
+                managmentPage.clickDeleteUserCreated()
+                managmentPage.clickConfirmDeleteUserCreated()
+
+                //Validacao (Assert)
+                managmentPage.assertDeletedUser()
+            })
+        })
+        
+            it('CreateUserPerfilVisualziador', () =>{
+                var name = 'Userone'
+                var nickname = 'One'
+                var email = 'userone@email.com'
+
+                managmentPage.clickConfig()
+                managmentPage.clickUserConfig()
+                managmentPage.ClicknewUser()
+                managmentPage.SendName(name)
+                managmentPage.SendRealname(nickname)
+                managmentPage.SendEmail(email)
+                managmentPage.selectAcessNivelVisualizador()
+                managmentPage.clickSaveUser()
+                managmentPage.assertCreateUser()
+                managmentPage.clickContinue()
+                managmentPage.clickDeleteUserCreated()
+                managmentPage.clickConfirmDeleteUserCreated()
+
+                //Validacao (Assert)
+                managmentPage.assertDeletedUser()
+            })
+            it('CreateUserPerfilRelator', () =>{
+                var name = 'Userone'
+                var nickname = 'One'
+                var email = 'userone@email.com'
+
+                managmentPage.clickConfig()
+                managmentPage.clickUserConfig()
+                managmentPage.ClicknewUser()
+                managmentPage.SendName(name)
+                managmentPage.SendRealname(nickname)
+                managmentPage.SendEmail(email)
+                managmentPage.selectAcessNivelrelator()
+                managmentPage.clickSaveUser()
+                managmentPage.assertCreateUser()
+                managmentPage.clickContinue()
+                managmentPage.clickDeleteUserCreated()
+                managmentPage.clickConfirmDeleteUserCreated()
+
+                //Validacao (Assert)
+                managmentPage.assertDeletedUser()
+            })
+            it('CreateUserPerfilAtualizador', () =>{
+                var name = 'Userone'
+                var nickname = 'One'
+                var email = 'userone@email.com'
+
+                managmentPage.clickConfig()
+                managmentPage.clickUserConfig()
+                managmentPage.ClicknewUser()
+                managmentPage.SendName(name)
+                managmentPage.SendRealname(nickname)
+                managmentPage.SendEmail(email)
+                managmentPage.selectAcessNivelAtualizador()
+                managmentPage.clickSaveUser()
+                managmentPage.assertCreateUser()
+                managmentPage.clickContinue()
+                managmentPage.clickDeleteUserCreated()
+                managmentPage.clickConfirmDeleteUserCreated()
+
+                //Validacao (Assert)
+                managmentPage.assertDeletedUser()
+            })
+            it('CreateUserPerfilGerente', () =>{
+                var name = 'Userone'
+                var nickname = 'One'
+                var email = 'userone@email.com'
+
+                managmentPage.clickConfig()
+                managmentPage.clickUserConfig()
+                managmentPage.ClicknewUser()
+                managmentPage.SendName(name)
+                managmentPage.SendRealname(nickname)
+                managmentPage.SendEmail(email)
+                managmentPage.selectAcessNivelGerente()
+                managmentPage.clickSaveUser()
+                managmentPage.assertCreateUser()
+                managmentPage.clickContinue()
+                managmentPage.clickDeleteUserCreated()
+                managmentPage.clickConfirmDeleteUserCreated()
+
+                //Validacao (Assert)
+                managmentPage.assertDeletedUser()
+            }) 
 
         })
         describe('Projetos', () => {
@@ -194,6 +302,42 @@ describe('Testes MantisBugTracker', () => {
                 managmentProjectPage.clickManageProject()
                 managmentProjectPage.clickCreateNewProject()
                 managmentProjectPage.alertNameProject()
+            })
+            it('Criar Projeto com Select Manage DSN', () => {
+                managmentProjectPage.clickConfigBtt()
+                managmentProjectPage.clickManageProject()
+                managmentProjectPage.clickCreateNewProject()
+                managmentProjectPage.sendtextNameProject()
+                managmentProjectPage.selectListStatusProjectDesenvolvimento()
+                managmentProjectPage.clickBttAddProject()
+                managmentProjectPage.assertCreatedSucess()
+            })
+            it('Criar Projeto com Select Manage Estavel', () => {
+                managmentProjectPage.clickConfigBtt()
+                managmentProjectPage.clickManageProject()
+                managmentProjectPage.clickCreateNewProject()
+                managmentProjectPage.sendtextNameProject()
+                managmentProjectPage.selectListStatusProjectEstavel()
+                managmentProjectPage.clickBttAddProject()
+                managmentProjectPage.assertCreatedSucess()
+            })
+            it('Criar Projeto com Select Manage Obsoleto', () => {
+                managmentProjectPage.clickConfigBtt()
+                managmentProjectPage.clickManageProject()
+                managmentProjectPage.clickCreateNewProject()
+                managmentProjectPage.sendtextNameProject()
+                managmentProjectPage.selectListStatusProjectObsoleto()
+                managmentProjectPage.clickBttAddProject()
+                managmentProjectPage.assertCreatedSucess()
+            })
+            it('Criar Projeto com Select Manage Release ', () => {
+                managmentProjectPage.clickConfigBtt()
+                managmentProjectPage.clickManageProject()
+                managmentProjectPage.clickCreateNewProject()
+                managmentProjectPage.sendtextNameProject()
+                managmentProjectPage.selectListStatusProjectRelease()
+                managmentProjectPage.clickBttAddProject()
+                managmentProjectPage.assertCreatedSucess()
             })
 
         })
@@ -386,6 +530,20 @@ describe('Testes MantisBugTracker', () => {
             taskPage.sendUsernameFalseTask()
             taskPage.clickBttAddUserFalse()
             taskPage.assertAlertUserinTask()
+
+        })
+        it('View Resume Tasks',() => {
+            taskPage.clickNewtask()
+            taskPage.selectCategory()
+            taskPage.sendTextResume()
+            taskPage.sendTextDescribe()
+            taskPage.clickSaveNewTask()
+
+            //Validacao (Assert)
+            taskPage.confirmTaskCreate()
+            taskPage.clickTaskResume()
+            taskPage.assertResumeTask()
+
 
         })
         describe('Category',() => {

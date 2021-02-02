@@ -21,7 +21,7 @@ const el = {
     linknovo:'tbody > tr > :nth-child(1)',
     tag_EditNameUser:'#edit-username',
     
-    
+
     
   
   }
@@ -101,6 +101,31 @@ const el = {
     }
     assertNameInvalido(){
       cy.get(el.assertOperationError).should('contain','O nome de usuário não é inválido.')
+    }
+    selectAcessNivelVisualizador(){
+      cy.get(el.liist_AcessNivel)
+      .select('10')
+      .should('contain','visualizador')
+    }
+    selectAcessNivelrelator(){
+      cy.get(el.liist_AcessNivel)
+      .select('25')
+      .should('contain','relator')
+    }
+    selectAcessNivelAtualizador(){
+      cy.get(el.liist_AcessNivel)
+      .select('40')
+      .should('contain','atualizador')
+    }
+    selectAcessNivelDesenvolvedor(){
+      cy.get(el.liist_AcessNivel)
+      .select('55')
+      .should('contain','desenvolvedor')
+    }
+    selectAcessNivelGerente(){
+      cy.get(el.liist_AcessNivel)
+      .select('70')
+      .should('contain','gerente')
     }
   }
   export default new GerenciarPage()
