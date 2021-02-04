@@ -17,27 +17,27 @@ O que foi feito:
 
 ## Arquivo Yml - AzureDevops
 {
-- master
+ master
 pool:
     name: Diego
 steps:
-- task: NodeTool@0
+ task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
-- script: |
+ script: |
       npm install mysql
   displayName: 'install mysql'
-- script: |
+ script: |
       npm run dashtest
   displayName: 'Run Cypress'
-- task: PublishTestResults@2
+ task: PublishTestResults@2
   displayName: 'Publish the test reports'
   inputs:
     testResultsFiles: '**/test-*.xml'
   condition: succeededOrFailed()
   continueOnError: true
-  }
+ }
 ***Observação:*** Caso necessário que os testes rodem em navegadores específicos pode ser adicionado no Yml os comandos:
 - cypress run --browser chrome
 - cypress run --browser edge
