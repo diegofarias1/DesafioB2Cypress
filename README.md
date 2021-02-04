@@ -16,6 +16,7 @@ O que foi feito:
 - Configurado yml para execução
 
 ## Arquivo Yml - AzureDevops
+{
 - master
 pool:
     name: Diego
@@ -36,7 +37,7 @@ steps:
     testResultsFiles: '**/test-*.xml'
   condition: succeededOrFailed()
   continueOnError: true
-  
+  }
 ***Observação:*** Caso necessário que os testes rodem em navegadores específicos pode ser adicionado no Yml os comandos:
 - cypress run --browser chrome
 - cypress run --browser edge
