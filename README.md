@@ -51,7 +51,7 @@ steps:
 
 - Linguagem de desenvolvimento - [JavaScript](https://www.javascript.com)
 
-- Ferramenta de testes automatizados - [Cypress - 6.4](http://cypress.io)
+- Ferramenta de testes automatizados - [Cypress - 6.2](http://cypress.io)
 
 - Relatório de teste on-line -[Cypress Dashboard](https://dashboard.cypress.io/)
 
@@ -63,7 +63,7 @@ steps:
 
  1. Install Node JS 
  2. Install NPM 
- 3. Instalar Cypress 4.5 (npm install cypress@4.5)
+ 3. Instalar Cypress 6.2 (npm install cypress@6.2)
  4. Install VSCode
 
 
