@@ -16,28 +16,53 @@ O que foi feito:
 - Configurado yml para execução
 
 ## Arquivo Yml - AzureDevops
-{
- master
+## Créditos
+  
+Desafio base2 Automação web
+
+O que foi feito:
+
+- Criado 50 Scripts de testes 
+- Utilizado Data-Driven para criar alguns recursos
+- Casos de teste foram executados em 3 navegadores ( Chrome, Edge , Firefox )
+- Screenshots e videos estão sendo gravados automaticamente com o Mocha e o Cypress Dashboard
+- Massa de testes foi preparada utlizando querys para criar projeto e deletes para limpar o banco.
+- Utilizado JS para inserir dados em alguns campos.
+- Utilizado o AzureDevops para agendar os testes
+- Criado uma Pipeline no AzureDevops para CD-CI
+- Criado um Agent local para rodar os testes utilizando o docker 
+- Configurado yml 
+
+## Arquivo Yml - AzureDevops
+```
+- master
 pool:
     name: Diego
 steps:
- task: NodeTool@0
+- task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
- script: |
+- script: |
       npm install mysql
   displayName: 'install mysql'
- script: |
+- script: |
       npm run dashtest
   displayName: 'Run Cypress'
- task: PublishTestResults@2
+- task: PublishTestResults@2
   displayName: 'Publish the test reports'
   inputs:
     testResultsFiles: '**/test-*.xml'
   condition: succeededOrFailed()
   continueOnError: true
- }
+  ```
+***Observação:*** Caso necessário que os testes rodem em navegadores específicos pode ser adicionado no Yml os comandos:
+- cypress run --browser chrome
+- cypress run --browser edge
+- cypress run --browser firefox
+
+
+
 ***Observação:*** Caso necessário que os testes rodem em navegadores específicos pode ser adicionado no Yml os comandos:
 - cypress run --browser chrome
 - cypress run --browser edge
