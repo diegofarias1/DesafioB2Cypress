@@ -33,6 +33,7 @@ describe('Testes MantisBugTracker', () => {
     })
     before(() => {
         cy.deleteProject()
+
     })
     describe('Logins', () => {
 
@@ -135,20 +136,20 @@ describe('Testes MantisBugTracker', () => {
                 ManagmentPage.assertNameInvalido()
             })
             it('Delete User Created', () => {
-   
+
                 var name = 'Userone'
-                
-                    managmentPage.clickConfig()
-                    managmentPage.clickUserConfig()
-                    managmentPage.ClicknewUser()
-                    managmentPage.SendName(name)
-                    managmentPage.clickSaveUser()
-                    managmentPage.clickContinue()
-                    managmentPage.clickDeleteUserCreated()
-                    managmentPage.clickConfirmDeleteUserCreated()
-    
-                    //Validacao (Assert)
-                    managmentPage.assertDeletedUser()
+
+                managmentPage.clickConfig()
+                managmentPage.clickUserConfig()
+                managmentPage.ClicknewUser()
+                managmentPage.SendName(name)
+                managmentPage.clickSaveUser()
+                managmentPage.clickContinue()
+                managmentPage.clickDeleteUserCreated()
+                managmentPage.clickConfirmDeleteUserCreated()
+
+                //Validacao (Assert)
+                managmentPage.assertDeletedUser()
             })
             it('Create User using JS', () => {
 
@@ -163,18 +164,18 @@ describe('Testes MantisBugTracker', () => {
                 managmentPage.SendRealname(nickname)
                 cy.get('#email-field').then($el => {
                     $el.val('usertree@email.com')
-                managmentPage.selectAcessNivel()
-                managmentPage.clickSaveUser()
-                managmentPage.clickContinue()
-                managmentPage.clickDeleteUserCreated()
-                managmentPage.clickConfirmDeleteUserCreated()
+                    managmentPage.selectAcessNivel()
+                    managmentPage.clickSaveUser()
+                    managmentPage.clickContinue()
+                    managmentPage.clickDeleteUserCreated()
+                    managmentPage.clickConfirmDeleteUserCreated()
 
-                //Validacao (Assert)
-                managmentPage.assertDeletedUser()
+                    //Validacao (Assert)
+                    managmentPage.assertDeletedUser()
+                })
             })
-        })
-        
-            it('CreateUserPerfilVisualziador', () =>{
+
+            it('CreateUserPerfilVisualziador', () => {
                 var name = 'Userone'
                 var nickname = 'One'
                 var email = 'userone@email.com'
@@ -195,7 +196,7 @@ describe('Testes MantisBugTracker', () => {
                 //Validacao (Assert)
                 managmentPage.assertDeletedUser()
             })
-            it('CreateUserPerfilRelator', () =>{
+            it('CreateUserPerfilRelator', () => {
                 var name = 'Userone'
                 var nickname = 'One'
                 var email = 'userone@email.com'
@@ -216,7 +217,7 @@ describe('Testes MantisBugTracker', () => {
                 //Validacao (Assert)
                 managmentPage.assertDeletedUser()
             })
-            it('CreateUserPerfilAtualizador', () =>{
+            it('CreateUserPerfilAtualizador', () => {
                 var name = 'Userone'
                 var nickname = 'One'
                 var email = 'userone@email.com'
@@ -237,7 +238,7 @@ describe('Testes MantisBugTracker', () => {
                 //Validacao (Assert)
                 managmentPage.assertDeletedUser()
             })
-            it('CreateUserPerfilGerente', () =>{
+            it('CreateUserPerfilGerente', () => {
                 var name = 'Userone'
                 var nickname = 'One'
                 var email = 'userone@email.com'
@@ -257,10 +258,11 @@ describe('Testes MantisBugTracker', () => {
 
                 //Validacao (Assert)
                 managmentPage.assertDeletedUser()
-            }) 
+            })
 
         })
         describe('Projetos', () => {
+
             it('Criar Project com campos obrigatorios', () => {
                 managmentProjectPage.clickConfigBtt()
                 managmentProjectPage.clickManageProject()
@@ -282,7 +284,9 @@ describe('Testes MantisBugTracker', () => {
                 //Validacao (Assert)
                 managmentProjectPage.assertCreatedSucess()
             })
+            //const projetos = require('../../fixtures/projects.json')
             const projetos = ['ProjectX', 'ProjectY', 'ProjectZ']
+
             projetos.forEach(projeto => {
                 it(`CriarProjeo - DataDriven ${projeto}`, function () {
 
@@ -297,6 +301,36 @@ describe('Testes MantisBugTracker', () => {
                 })
 
             })
+            describe('DataDriven', function () {
+                before(() => {
+                    cy.fixture('projects.json').as('ttdata')
+
+                })
+
+                it('Data Driven arquivo JSON LOOPING', function () {
+                    this.ttdata['Array Projetos'].forEach(ttObject => {
+
+                        //Outra forma de fazer DDT
+                        //const ArrayProjetos = this.ttdata
+                        //cy.get(ArrayProjetos['Array Projetos']).each((ttObject) => {
+                        //this.ttdata['Array Projetos'].forEach(ttObject => {
+
+
+                        managmentProjectPage.clickConfigBtt()
+                        managmentProjectPage.clickManageProject()
+                        managmentProjectPage.clickCreateNewProject()
+                        managmentProjectPage.sendVarTextNameProject(ttObject.projeto)
+                        managmentProjectPage.clickBttAddProject()
+                        managmentProjectPage.assertCreatedSucess()
+
+
+
+                    })
+                })
+
+            })
+
+
             it('Validar campo Obrigatorio Nome do Projeto', () => {
                 managmentProjectPage.clickConfigBtt()
                 managmentProjectPage.clickManageProject()
@@ -532,7 +566,7 @@ describe('Testes MantisBugTracker', () => {
             taskPage.assertAlertUserinTask()
 
         })
-        it('View Resume Tasks',() => {
+        it('View Resume Tasks', () => {
             taskPage.clickNewtask()
             taskPage.selectCategory()
             taskPage.sendTextResume()
@@ -546,53 +580,53 @@ describe('Testes MantisBugTracker', () => {
 
 
         })
-        describe('Category',() => {
+        describe('Category', () => {
 
-        
-        it('Create Task Category Backend', () => {
-            taskPage.clickNewtask()
-            taskPage.selectCategoryBackEnd()
-            taskPage.sendTextResume()
-            taskPage.sendTextDescribe()
-            taskPage.clickSaveNewTask()
 
-            //Validacao (Assert)
-            taskPage.confirmTaskCreate()
-            taskPage.navigate_home()
-        })
-        it('Create Task Category Design', () => {
-            taskPage.clickNewtask()
-            taskPage.selectCategoryDesign()
-            taskPage.sendTextResume()
-            taskPage.sendTextDescribe()
-            taskPage.clickSaveNewTask()
+            it('Create Task Category Backend', () => {
+                taskPage.clickNewtask()
+                taskPage.selectCategoryBackEnd()
+                taskPage.sendTextResume()
+                taskPage.sendTextDescribe()
+                taskPage.clickSaveNewTask()
 
-            //Validacao (Assert)
-            taskPage.confirmTaskCreate()
-            taskPage.navigate_home()
-        })
-        it('Create Task Category Frontend', () => {
-            taskPage.clickNewtask()
-            taskPage.selectCategoryFrontEnd()
-            taskPage.sendTextResume()
-            taskPage.sendTextDescribe()
-            taskPage.clickSaveNewTask()
+                //Validacao (Assert)
+                taskPage.confirmTaskCreate()
+                taskPage.navigate_home()
+            })
+            it('Create Task Category Design', () => {
+                taskPage.clickNewtask()
+                taskPage.selectCategoryDesign()
+                taskPage.sendTextResume()
+                taskPage.sendTextDescribe()
+                taskPage.clickSaveNewTask()
 
-            //Validacao (Assert)
-            taskPage.confirmTaskCreate()
-            taskPage.navigate_home()
-        })
-        it('Create Task Category Test', () => {
-            taskPage.clickNewtask()
-            taskPage.selectCategoryTest()
-            taskPage.sendTextResume()
-            taskPage.sendTextDescribe()
-            taskPage.clickSaveNewTask()
+                //Validacao (Assert)
+                taskPage.confirmTaskCreate()
+                taskPage.navigate_home()
+            })
+            it('Create Task Category Frontend', () => {
+                taskPage.clickNewtask()
+                taskPage.selectCategoryFrontEnd()
+                taskPage.sendTextResume()
+                taskPage.sendTextDescribe()
+                taskPage.clickSaveNewTask()
 
-            //Validacao (Assert)
-            taskPage.confirmTaskCreate()
-            taskPage.navigate_home()
-        })
+                //Validacao (Assert)
+                taskPage.confirmTaskCreate()
+                taskPage.navigate_home()
+            })
+            it('Create Task Category Test', () => {
+                taskPage.clickNewtask()
+                taskPage.selectCategoryTest()
+                taskPage.sendTextResume()
+                taskPage.sendTextDescribe()
+                taskPage.clickSaveNewTask()
+
+                //Validacao (Assert)
+                taskPage.confirmTaskCreate()
+                taskPage.navigate_home()
+            })
         })
         it('Select Profile Create Task', () => {
             taskPage.clickNewtask()
@@ -642,73 +676,73 @@ describe('Testes MantisBugTracker', () => {
             taskPage.confirmTaskCreate()
 
         })
-        describe('Frequencia',() =>{
+        describe('Frequencia', () => {
 
-        it('Criando Tarefa com frequencia "SEMPRE', () => {
-            taskPage.clickNewtask()
-            taskPage.selectCategory()
-            taskPage.sendTextResume()
-            taskPage.sendTextDescribe()
-            taskPage.selectFrequencySempre()
-            taskPage.clickSaveNewTask()
-            // Validacao(Assert)
-            taskPage.confirmTaskCreate()
+            it('Criando Tarefa com frequencia "SEMPRE', () => {
+                taskPage.clickNewtask()
+                taskPage.selectCategory()
+                taskPage.sendTextResume()
+                taskPage.sendTextDescribe()
+                taskPage.selectFrequencySempre()
+                taskPage.clickSaveNewTask()
+                // Validacao(Assert)
+                taskPage.confirmTaskCreate()
 
-        })
-        it('Criando Tarefa com frequencia "AS VEZES', () => {
-            taskPage.clickNewtask()
-            taskPage.selectCategory()
-            taskPage.sendTextResume()
-            taskPage.sendTextDescribe()
-            taskPage.selectFrequencyAsvezes()
-            taskPage.clickSaveNewTask()
-            // Validacao(Assert)
-            taskPage.confirmTaskCreate()
+            })
+            it('Criando Tarefa com frequencia "AS VEZES', () => {
+                taskPage.clickNewtask()
+                taskPage.selectCategory()
+                taskPage.sendTextResume()
+                taskPage.sendTextDescribe()
+                taskPage.selectFrequencyAsvezes()
+                taskPage.clickSaveNewTask()
+                // Validacao(Assert)
+                taskPage.confirmTaskCreate()
 
-        })
-        it('Criando Tarefa com frequencia "Aleatorio', () => {
-            taskPage.clickNewtask()
-            taskPage.selectCategory()
-            taskPage.sendTextResume()
-            taskPage.sendTextDescribe()
-            taskPage.selectFrequencyAleatorio()
-            taskPage.clickSaveNewTask()
-            // Validacao(Assert)
-            taskPage.confirmTaskCreate()
+            })
+            it('Criando Tarefa com frequencia "Aleatorio', () => {
+                taskPage.clickNewtask()
+                taskPage.selectCategory()
+                taskPage.sendTextResume()
+                taskPage.sendTextDescribe()
+                taskPage.selectFrequencyAleatorio()
+                taskPage.clickSaveNewTask()
+                // Validacao(Assert)
+                taskPage.confirmTaskCreate()
 
-        })
-        it('Criando Tarefa com frequencia "Nao Se Atentou', () => {
-            taskPage.clickNewtask()
-            taskPage.selectCategory()
-            taskPage.sendTextResume()
-            taskPage.sendTextDescribe()
-            taskPage.selectFrequencyNaoSeAtentou()
-            taskPage.clickSaveNewTask()
-            // Validacao(Assert)
-            taskPage.confirmTaskCreate()
+            })
+            it('Criando Tarefa com frequencia "Nao Se Atentou', () => {
+                taskPage.clickNewtask()
+                taskPage.selectCategory()
+                taskPage.sendTextResume()
+                taskPage.sendTextDescribe()
+                taskPage.selectFrequencyNaoSeAtentou()
+                taskPage.clickSaveNewTask()
+                // Validacao(Assert)
+                taskPage.confirmTaskCreate()
 
-        })
-        it('Criando Tarefa com frequencia "Incapaz de Produzir', () => {
-            taskPage.clickNewtask()
-            taskPage.selectCategory()
-            taskPage.sendTextResume()
-            taskPage.sendTextDescribe()
-            taskPage.selectFrequencyIncapaz()
-            taskPage.clickSaveNewTask()
-            // Validacao(Assert)
-            taskPage.confirmTaskCreate()
+            })
+            it('Criando Tarefa com frequencia "Incapaz de Produzir', () => {
+                taskPage.clickNewtask()
+                taskPage.selectCategory()
+                taskPage.sendTextResume()
+                taskPage.sendTextDescribe()
+                taskPage.selectFrequencyIncapaz()
+                taskPage.clickSaveNewTask()
+                // Validacao(Assert)
+                taskPage.confirmTaskCreate()
 
-        })
-        it('Criando Tarefa com frequencia "N/D', () => {
-            taskPage.clickNewtask()
-            taskPage.selectCategory()
-            taskPage.sendTextResume()
-            taskPage.sendTextDescribe()
-            taskPage.selectFrequencyND()
-            taskPage.clickSaveNewTask()
-            // Validacao(Assert)
-            taskPage.confirmTaskCreate()
-        })
+            })
+            it('Criando Tarefa com frequencia "N/D', () => {
+                taskPage.clickNewtask()
+                taskPage.selectCategory()
+                taskPage.sendTextResume()
+                taskPage.sendTextDescribe()
+                taskPage.selectFrequencyND()
+                taskPage.clickSaveNewTask()
+                // Validacao(Assert)
+                taskPage.confirmTaskCreate()
+            })
         })
     })
 })

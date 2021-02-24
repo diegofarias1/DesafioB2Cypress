@@ -113,3 +113,5 @@ module.exports = (on, config) => {
 // in plugins/index.js
 // we require some code in our app that
 // is responsible for seeding our database
+// cypress/plugins/index.ts
+
