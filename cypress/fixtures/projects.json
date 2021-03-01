@@ -1,13 +1,17 @@
-{
-  "Array Projetos": [
+[
     {
-      "projeto": "ProjetoX"
+        "nome": "PROJETO X",
+        "desc": "Esse é o Projeto X!",
+        "status": "pendente"
     },
     {
-      "projeto": "ProjetoY"
+        "nome": "PROJETO Y",
+        "desc": "Esse é o Projeto Y!",
+        "status": "pendente"
     },
     {
-      "projeto": "ProjetoZ"
+        "nome": "PROJETO Z",
+        "desc": "Esse é o Projeto Z!",
+        "status": "pendente"
     }
-  ]
-}
+]
